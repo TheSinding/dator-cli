@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+
+<JFXTabPane fx:id="tabList"
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="main.java.controllers.MainViewController">
+   <tabs>
+      <Tab text="Main View">
+         <content>
+            <fx:include source="mainTab.fxml"/>
+         </content>
+      </Tab>
+      <Tab text="CPU">
+         <content>
+            <!--<fx:include fx:id="cpuTab" source="cpuTab.fxml"/>-->
+         </content>
+      </Tab>
+   </tabs>
+</JFXTabPane>

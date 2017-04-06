@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root type="VBox">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About Dator" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox alignment="CENTER" prefHeight="50.0" spacing="20.0">
+         <children>
+            <JFXTextField fx:id="hostField" focusColor="#29b6f6" labelFloat="true" prefHeight="30.0" promptText="Host" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" spacing="20.0">
+         <children>
+            <JFXTextField fx:id="dbField" focusColor="#29b6f6" labelFloat="true" prefHeight="30.0" promptText="Database name" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" spacing="20.0">
+         <children>
+            <JFXTextField fx:id="portField" focusColor="#29b6f6" labelFloat="true" prefHeight="30.0" promptText="Port" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="64.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <JFXTextField fx:id="usernameField" focusColor="#29b6f6" labelFloat="true" prefHeight="30.0" promptText="User" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <JFXPasswordField fx:id="passwordField" focusColor="#29b6f6" labelFloat="true" prefHeight="30.0" promptText="Password" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
+         <children>
+            <JFXButton fx:id="connectBtn" alignment="CENTER" buttonType="RAISED" defaultButton="true" onAction="#connect" prefHeight="43.0" prefWidth="107.0" ripplerFill="WHITE" style="-fx-background-color: #29B6F6;" text="Connect" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></JFXButton>
+         </children>
+      </HBox>
+      <JFXCheckBox fx:id="defaultCheckbox" mnemonicParsing="false" onAction="#defaultConfig" text="Use default config" />
+   </children>
+</VBox>
+</fx:root>

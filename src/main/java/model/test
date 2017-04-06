@@ -1,0 +1,64 @@
+INSERT INTO graphicscards (name, type, kind, price, currentstock, preferedstock, minimumstock, speed) VALUES
+('EVGA GTX1080 Ti','PCI-E Gen3','graphicscard',1500.0, 40, 60, 20, 2666),
+('EVGA GTX1080','PCI-E Gen3','graphicscard',750.0, 40, 60, 20, 2666),
+('EVGA GTX1070','PCI-E Gen3','graphicscard',375.0, 40, 60, 20, 2666),
+('EVGA GTX1060','PCI-E Gen3','graphicscard',3000.0, 40, 60, 20, 2666),
+('Gigabyte RX470','PCI-E Gen3','graphicscard',1550.0, 40, 60, 20, 3000),
+('Gigabyte RX460','PCI-E Gen3','graphicscard',800.0, 40, 60, 20, 3000),
+('Gigabyte RX450','PCI-E Gen3','graphicscard',425.0, 40, 60, 20, 3000),
+('Gigabyte RX440','PCI-E Gen3','graphicscard',3100.0, 40, 60, 20, 3000),
+('Voodoo 3DX','AGP','graphicscard',250.0, 40, 60, 20, 1333);
+
+
+INSERT INTO motherboard (name,
+                         type,
+                         kind,
+                         price,
+                         currentstock,
+                         preferedstock,
+                         minimumstock,
+                         socket,
+                         formfactor,
+                         onboardgraphics) VALUES
+('Asus MAXIMUS VIII EXTREME','PCI-E Gen3','motherboard',1500.0, 40, 60, 20, 'LGA-1151', 'ATX', false),
+('Asus MAXIMUS VIII GENE','PCI-E Gen3','motherboard',750.0, 40, 60, 20, 'LGA-1151', 'ATX', true),
+('Asus MAXIMUS VIII HERO ALPHA','PCI-E Gen3','motherboard',375.0, 40, 60, 20, 'LGA-1151', 'ATX', false),
+('Asus MAXIMUS VIII HERO','PCI-E Gen3','motherboard',3000.0, 40, 60, 20, 'LGA-1151', 'ATX', false),
+('Asus MAXIMUS VIII RANGER','PCI-E Gen3','motherboard',1550.0, 40, 60, 20, 'LGA-1151', 'ATX', true),
+('Asus SABERTOOTH Z170 MARK 1','PCI-E Gen3','motherboard',800.0, 40, 60, 20, 'AM4', 'M-ITX', false),
+('Asus Z170 PRO GAMING','PCI-E Gen3','motherboard',425.0, 40, 60, 20, 'AM4', 'E-ATX', false),
+('Asus Z170 PRO','PCI-E Gen3','motherboard',3100.0, 40, 60, 20, 'AM4', 'ATX', false),
+('Asus Z170 GAMING','AGP','motherboard',250.0, 40, 60, 20, 'AM4', 'ATX', false);
+
+INSERT INTO motherboard (name,
+                         type,
+                         kind,
+                         price,
+                         currentstock,
+                         preferedstock,
+                         minimumstock
+                        ) VALUES
+('Riotoro CR1080','M-ITX','systemcase',80.0, 40, 60, 20),
+('NZXT H440','ATX','systemcase',106.0, 40, 60, 20),
+('Fractal Design Define R5','ATX','systemcase',80.0, 40, 60, 20),
+('Cougar QBX','M-ITX','systemcase',60.0, 40, 60, 20),
+('Cooler Master MasterCase Pro 5','ATX','systemcase',240.0, 40, 60, 20),
+('Fractal Design Node 804','M-ITX','systemcase',80.0, 40, 60, 20),
+('Fractal Design Core 1000','M-ATX','systemcase',80.0, 40, 60, 20),
+('Phanteks Enthoo EVOLV ATX','ATX','systemcase',185.0, 40, 60, 20);
+
+
+INSERT INTO cpu (name,
+                         type,
+                         kind,
+                         price,
+                         currentstock,
+                         preferedstock,
+                         minimumstock,
+                         socket,
+                		busspeed) VALUES
+('Intel I7 6900K','Broadwell','cpu', 4500.0, 40, 60, 20, 'LGA-2011',4.2),
+('Intel I7 6800K','Broadwell','cpu', 4000.0, 40, 60, 20, 'LGA-2011',4.2),
+('Intel I7 6700K','Skylake','cpu', 2800.0, 40, 60, 20, 'LGA-1151',4.0),
+('Intel I7 6600K','Skylake','cpu', 2300.0, 40, 60, 20, 'LGA-1151',4.4),
+('Intel I7 6500','Skylake','cpu', 1800.0, 40, 60, 20, 'LGA-1151',4.4);
