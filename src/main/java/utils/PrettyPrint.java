@@ -11,10 +11,13 @@ import static main.java.utils.Names.*;
 
 public class PrettyPrint {
     private static String spacer = "------------------------------";
+    private static String spacer10 = "----------";
+    private static String spacer22 = "----------------------";
 
 
     public static void printWelcome(){
         System.out.println("This is a DB project by Simon Sinding - 2017");
+        System.out.println("Sisin16");
         System.out.println("Github.com/TheSinding");
         System.out.println("");
         System.out.println("|--------------------------------------------------|");
@@ -23,6 +26,10 @@ public class PrettyPrint {
         System.out.println("| stopped working all of a sudden so I had to      |");
         System.out.println("| quickly put this togeather, that's why it's,     |");
         System.out.println("| really really really, shitty codebase.           |");
+        System.out.println("|                                                  |");
+        System.out.println("| **NOTE** This was developed on a 4K monitor      |");
+        System.out.println("| So it might look abit off when you run it        |");
+        System.out.println("|                                                  |");
         System.out.println("|--------------------------------------------------|");
         System.out.println("");
         System.out.println("Welcome to Dator CLI (GUI wasn't working!)");
@@ -34,7 +41,7 @@ public class PrettyPrint {
     public static ArrayList<ComputerComponent> printRestocking(ArrayList<ComputerComponent> components){
         ArrayList<ComputerComponent> needsRestocking = new ArrayList<>();
         for(ComputerComponent component : components){
-            if(component.getCurrentStock() <= component.getMinimumStock()){
+            if(component.getCurrentStock() <= component.getPreferedStock()){
                 needsRestocking.add(component);
             }
         }
@@ -42,18 +49,18 @@ public class PrettyPrint {
             System.out.println("Looks like nothing needs to be restocked! NOICE!");
             return null;
         }
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", PRODUCTID.toString(), NAME.toString(),  PREFEREDSTOCK.toString(), CURRENTSTOCK.toString(), MINIMUMSTOCK.toString());
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", spacer, spacer, spacer, spacer, spacer);
+        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", PRODUCTID.toString(), NAME.toString(),  PRICE.toString(), CURRENTSTOCK.toString(),PREFEREDSTOCK.toString(),"Need amount to prefered stock");
+        System.out.printf("|  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |\n", spacer);
         for(ComputerComponent component : needsRestocking){
-            if(component.getCurrentStock() <= component.getMinimumStock()){
-                needsRestocking.add(component);
-                 System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  | %s \n"
+            if(component.getCurrentStock() <= component.getPreferedStock()){
+                 System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  | %s \n"
                 , component.getProductId()
                 , component.getName()
                 , Math.ceil(component.getPrice()) - 1
                 , component.getCurrentStock()
-                , component.getMinimumStock()
-                 , (component.getCurrentStock() < component.getMinimumStock()) ? "* Needs restocking NOW" : "");
+                , component.getPreferedStock()
+                         ,component.getPreferedStock() - component.getCurrentStock()
+                 , (component.getCurrentStock() < component.getMinimumStock()) ? "* Below minimum stock! " : "");
             }
         }
         return needsRestocking;
@@ -69,7 +76,7 @@ public class PrettyPrint {
     }
 
     public static void printAComputer(ArrayList<ComputerSystem> computers, ArrayList<ComputerComponent> components){
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n"
+        System.out.printf("|  %-10s  |  %-22s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-10s  |  %-22s  |\n"
                 , PRODUCTID.toString()
                 , NAME.toString()
                 , CPU.toString()
@@ -79,7 +86,7 @@ public class PrettyPrint {
                 , GRAPHICSCARD.toString()
                 , PRICE.toString()
                 , "Possible Build Amount");
-        System.out.printf("|  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |\n", spacer);
+        System.out.printf("|  %2$-10s  |  %3$-22s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %2$-10s  |  %3$-22s  |\n", spacer,spacer10,spacer22);
         int i = 0;
         for(ComputerSystem computer : computers){
             double price = 0.0;
@@ -123,7 +130,7 @@ public class PrettyPrint {
             }
 
             name = computer.getName();
-            System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n"
+            System.out.printf("|  %-10s  |  %-22s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-10s  |  %-22s  |\n"
                     , id
                     , name
                     , cpu
@@ -138,7 +145,7 @@ public class PrettyPrint {
     }
 
     public static int printAComputer(ComputerSystem computer, ArrayList<ComputerComponent> components){
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n"
+        System.out.printf("|  %-10s  |  %-22s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-10s  |  %-22s  |\n"
                 , PRODUCTID.toString()
                 , NAME.toString()
                 , CPU.toString()
@@ -148,7 +155,7 @@ public class PrettyPrint {
                 , GRAPHICSCARD.toString()
                 , PRICE.toString()
                 , "Possible Build Amount");
-        System.out.printf("|  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |\n", spacer);
+        System.out.printf("|  %2$-10s  |  %3$-22s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %1$-30s  |  %2$-10s  |  %3$-22s  |\n", spacer,spacer10,spacer22);
         int i = 0;
         double price = 0.0;
         boolean check = false;
@@ -189,7 +196,7 @@ public class PrettyPrint {
             }
         }
         name = computer.getName();
-            System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n"
+            System.out.printf("|  %-10s  |  %-22s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-10s  |  %-22s  |\n"
                     , id
                     , name
                     , cpu
@@ -252,14 +259,15 @@ public class PrettyPrint {
     }
 
     public static void printRestockingRow(ComputerComponent component){
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", PRODUCTID.toString(), NAME.toString(),  PREFEREDSTOCK.toString(), CURRENTSTOCK.toString(), MINIMUMSTOCK.toString());
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", spacer, spacer, spacer, spacer, spacer);
-        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n"
+        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", PRODUCTID.toString(), NAME.toString(),  PREFEREDSTOCK.toString(), CURRENTSTOCK.toString(), PREFEREDSTOCK.toString(),"Need amount to prefered stock");
+        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n", spacer, spacer, spacer, spacer, spacer,spacer);
+        System.out.printf("|  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |  %-30s  |\n"
                 , component.getProductId()
                 , component.getName()
                 , Math.ceil(component.getPrice()) - 1
                 , component.getCurrentStock()
-                , component.getMinimumStock()
+                , component.getPreferedStock()
+                , component.getPreferedStock() - component.getCurrentStock()
                );
     }
 }

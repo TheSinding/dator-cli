@@ -65,6 +65,7 @@ public class MainApp {
                     break;
                 case 3:
                     PrettyPrint.printTotalPriceList(computerComponents);
+                    PrettyPrint.printAComputer(computerSystems, computerComponents);
                     break;
                 case 4:
                     System.out.println("If you buy more than 1 computer system you get 2% off per computer system" +
