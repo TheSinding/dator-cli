@@ -27,7 +27,7 @@ public class MainApp {
 
     private Basket basket;
 
-    public MainApp(){
+    public MainApp() throws SQLException{
 
         this.connected = this.connect(DB_URL, DB_USER, DB_PASS);
         this.computerComponents = this.listAllComponents();
@@ -132,15 +132,13 @@ public class MainApp {
         }
 
     }
-    public boolean connect(String url, String user, String pass) {
+    public boolean connect(String url, String user, String pass) throws SQLException {
         try {
             dbConn = new ConnectionModel(url, user, pass);
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
-
+            throw new SQLException(e);
         }
-        return false;
     }
 
     private ArrayList<ComputerComponent> listAllComponents(){
